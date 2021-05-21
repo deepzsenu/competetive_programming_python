@@ -1,4 +1,32 @@
-
+t = int(input())
+for _ in range(t):
+    k,d0,d1 = map(int,input().split())
+    count=2
+    s=d0+d1
+    lastdigit =(d0+d1)%10
+    k-=2
+    while k>0:
+        if lastdigit==2:
+            sets = (k//4)
+            k-=sets*4
+            s+=sets*20
+            if k==1:
+                s+=2
+            elif k==2:
+                s+=6
+            elif k==3:
+                s+=14
+            break
+        elif lastdigit==0:
+            break
+        else:
+            s+=lastdigit
+            lastdigit = (lastdigit*2)%10
+            k-=1
+    if s%3:
+        print("NO")
+    else:
+        print("YES")
 
 '''# cook your dish here
 def div_three(k, d , e):
@@ -14,7 +42,7 @@ def div_three(k, d , e):
         print("YES")
     else:
         print("NO")
-'''
+
 # int the above solution the time limit exceed for large numbers
 
 def main():
@@ -29,3 +57,6 @@ def main():
         
 if __name__ == '__main__':
     main()
+    
+    
+    '''
